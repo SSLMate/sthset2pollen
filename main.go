@@ -27,8 +27,8 @@ package main
 
 import (
 	"archive/zip"
-	"encoding/json"
 	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -36,16 +36,16 @@ import (
 )
 
 type signedTreeHead struct {
-	Version           int         `json:"sth_version"`
-	TreeSize          uint64      `json:"tree_size"`
-	Timestamp         uint64      `json:"timestamp"`
-	SHA256RootHash    []byte      `json:"sha256_root_hash"`
-	TreeHeadSignature []byte      `json:"tree_head_signature"`
-	LogID             []byte      `json:"log_id"`
+	Version           int    `json:"sth_version"`
+	TreeSize          uint64 `json:"tree_size"`
+	Timestamp         uint64 `json:"timestamp"`
+	SHA256RootHash    []byte `json:"sha256_root_hash"`
+	TreeHeadSignature []byte `json:"tree_head_signature"`
+	LogID             []byte `json:"log_id"`
 }
 
 type sthPollen struct {
-	STHs		[]*signedTreeHead `json:"sths"`
+	STHs []*signedTreeHead `json:"sths"`
 }
 
 const sthSetAppId = "ojjgnpkioondelmggbekfhllhdaimnho"
@@ -64,7 +64,7 @@ func readSTH(version int, logID []byte, file *zip.File) (*signedTreeHead, error)
 
 	sth := &signedTreeHead{
 		Version: version,
-		LogID: logID,
+		LogID:   logID,
 	}
 	if err := json.Unmarshal(sthBytes, sth); err != nil {
 		return nil, fmt.Errorf("Failed to parse sth in ZIP: %s\n", err)
