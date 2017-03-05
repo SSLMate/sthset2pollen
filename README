@@ -1,6 +1,6 @@
 sthset2pollen downloads Chromium's latest STHSet and outputs
 it in the form of an STH pollen JSON object as specified in
-<https://tools.ietf.org/html/draft-ietf-trans-gossip-04#section-8.2.4>.
+<https://tools.ietf.org/html/draft-ietf-trans-gossip-00#section-5.2.3>.
 
 The code is based on Adam Langley's crlset-tools
 <https://github.com/agl/crlset-tools>.  Many thanks to Graham Edgecombe
@@ -23,4 +23,4 @@ Just run:
 To upload the latest STHSet to an auditor which implements the
 sth-pollination endpoint, run:
 
-	sthset2pollen | curl -sS --data-binary @- -H "Content-Type: application/json" https://example.com/.well-known/ct-gossip/v1/sth-pollination
+	sthset2pollen | curl -sS --data-binary @- -H "Content-Type: application/json" https://example.com/.well-known/ct/v1/sth-pollination
