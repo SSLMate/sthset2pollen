@@ -74,7 +74,7 @@ func buildCrxURL(appid string) string {
 	args.Add("x", "id="+appid+"&uc")
 
 	return (&url.URL{
-		Scheme:   "http",
+		Scheme:   "https",
 		Host:     "clients2.google.com",
 		Path:     "/service/update2/crx",
 		RawQuery: args.Encode(),
